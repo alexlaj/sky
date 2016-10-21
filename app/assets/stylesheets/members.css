@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+
+body {
+  font-family: 'Roboto';
+  font-weight: 300;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: left;
+}
+
+tr {
+  border-bottom: 1px solid black;
+}
+
+th {
+  padding-right: 5px;
+}
+
+td {
+  padding-top: 2px;
+  padding-right: 5px;
+}
+
+.guild-name {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.legendary {
+  color: #ff8000;
+}
+
+.epic {
+  color: #a335ee;
+}
+
+.rare {
+  color: #0070ff;
+}
+
+.class-icon {
+  height: 1rem;
+}
+
+.button__member-update {
+  border: 1px solid black;
+  background-color: white;
+  font-family: 'Roboto';
+  font-weight: 300;
+}
+
+.button__member-update:hover {
+  background-color: #00FF96;
+}
+
+.deathknight {
+  color: #C41F3B;
+}
+
+.demonhunter {
+  color: #A330C9;
+}
+
+.druid {
+  color: #FF7D0A;
+}
+
+.hunter {
+  color: #ABD473;
+}
+
+.mage {
+  color: #9CFFFF;
+}
+
+.monk {
+  color: #00FF96;
+}
+
+.paladin {
+  color: #F58CBA;
+}
+
+.priest {
+}
+
+.rogue {
+  color: #E6DC50;
+}
+
+.shaman {
+  color: #0070DE;
+}
+
+.warlock {
+  color: #9482C9;
+}
+
+.warrior {
+  color: #C79C6E;
+}
