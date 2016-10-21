@@ -24,7 +24,7 @@ td {
 }
 
 .guild-name {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 300;
 }
 
@@ -49,6 +49,14 @@ td {
   background-color: white;
   font-family: 'Roboto';
   font-weight: 300;
+}
+
+.button__member-update:focus {
+  outline: none;
+}
+
+.button__member-update:focus::before {
+  content: "\u2713";
 }
 
 .button__member-update:hover {

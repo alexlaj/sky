@@ -8,9 +8,8 @@ class MembersController < ApplicationController
 
   def resync
     load_guild_members
-    MemberUpdater.update_members(@members)
+    Delayed::Job.enqueue(MemberUpdateJob.new(@members))
 
-    load_guild_members
     redirect_to members_url
   end
 
