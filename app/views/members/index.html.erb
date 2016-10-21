@@ -5,13 +5,12 @@
     <tr>
       <td><%= i + 1 %> </td>
       <td><%= member.name %></td>
-      <td><%= member.level %></td>
+      <td class='<%= i < 5 ? "legendary" : i < 15 ? "epic" : "rare" %>'><%= member.equipped_ilevel.to_s %></td>
+      <td><%= member.max_ilevel.to_s %></td>
       <td class='<%= member.character_class.downcase %>'>
         <img class='class-icon' src='<%= "#{member.character_class.downcase}.png" %>'>
         <%= member.character_class %>
       </td>
-      <td class='<%= i < 5 ? "legendary" : i < 15 ? "epic" : "rare" %>'><%= member.equipped_ilevel.to_s %></td>
-      <td><%= member.max_ilevel.to_s %></td>
       <td><%= member.specialization %></td>
       <td><%= member.role %></td>
     </tr>

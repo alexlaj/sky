@@ -1,9 +1,5 @@
 class MemberUpdateJob
-  def initialize(members)
-    @members = members
-  end
-
   def perform
-    MemberUpdater.update_members(@members)
+    MemberUpdater.run(MemberUpdater.retrieve_members)
   end
 end

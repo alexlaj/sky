@@ -8,7 +8,7 @@ class MembersController < ApplicationController
 
   def resync
     load_guild_members
-    Delayed::Job.enqueue(MemberUpdateJob.new(@members))
+    Delayed::Job.enqueue(MemberUpdateJob.new)
 
     redirect_to members_url
   end
@@ -18,6 +18,5 @@ class MembersController < ApplicationController
   def load_guild_members
     @members = GuildMember.where(level: 110)
                           .order('equipped_ilevel desc')
-                          .limit(50)
   end
 end
