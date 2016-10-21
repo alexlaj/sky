@@ -7,7 +7,8 @@ class MembersController < ApplicationController
   end
 
   def resync
-    MemberUpdater.run(MemberUpdater.retrieve_members)
+    load_guild_members
+    MemberUpdater.update_members(@members)
 
     load_guild_members
     redirect_to members_url

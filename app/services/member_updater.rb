@@ -1,4 +1,7 @@
 class MemberUpdater
+  CLASSES = %w(NA Warrior Paladin Hunter Rogue Priest Deathknight Shaman Mage
+               Warlock Monk Druid Demonhunter).freeze
+
   def self.retrieve_members
     bnet = BattlenetClient.new(ENV['BATTLENET'])
     members = bnet.get_guild('Lightbringer', 'Obsidian Sky')['members']
@@ -19,7 +22,30 @@ class MemberUpdater
         m = GuildMember.find_or_create_by(name: member['name'])
         m.update(
           level: member['level'],
-          character_class: classes[member['class']],
+          character_class: CLASSES[member['class']],
+          max_ilevel: member['items']['averageItemLevel'],
+          equipped_ilevel: member['items']['averageItemLevelEquipped'],
+          specialization: member['talents'][0]['spec']['name'],
+          role: member['talents'][0]['spec']['role']
+        )
+      end
+    end
+  end
+
+  def self.update_members(members)
+    bnet = BattlenetClient.new(ENV['BATTLENET'])
+    updated_members = []
+    members.each do |member|
+      updated_members << bnet.get_character('Lightbringer', member.name)
+    end
+
+    ActiveRecord::Base.transaction do
+      updated_members.each do |member|
+        next if member['status'] == 'nok'
+        m = GuildMember.find_or_create_by(name: member['name'])
+        m.update(
+          level: member['level'],
+          character_class: CLASSES[member['class']],
           max_ilevel: member['items']['averageItemLevel'],
           equipped_ilevel: member['items']['averageItemLevelEquipped'],
           specialization: member['talents'][0]['spec']['name'],

@@ -25,6 +25,7 @@ class BattlenetClient
   private
 
   def perform_get(uri)
+    Rails.logger.info("Requesting #{uri}")
     uri = URI.parse(URI.encode(uri))
     Net::HTTP.get_response(uri).body
   end
