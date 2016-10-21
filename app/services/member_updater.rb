@@ -1,6 +1,6 @@
 class MemberUpdater
   def self.retrieve_members
-    bnet = BattlenetClient.new(YAML.load_file('config/secrets.yml')['battlenet'])
+    bnet = BattlenetClient.new(ENV['BATTLENET'])
     members = bnet.get_guild('Lightbringer', 'Obsidian Sky')['members']
     members = members.select { |m| m['character']['level'] == 110 }
     a = []
