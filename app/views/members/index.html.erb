@@ -16,5 +16,8 @@
     </tr>
   <% end %>
 </table>
-<%= button_to 'Update member data', resync_members_url, method: :get, class: 'button button__member-update' %>
+<div class="update-section">
+  <%= button_to 'Begin member update job', resync_members_url, method: :get, class: 'button button__member-update' %>
+  <div class="last-updated"><%= "Last updated #{time_ago_in_words @members.first.updated_at} ago." %></div>
+</div>
 </div>

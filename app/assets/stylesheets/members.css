@@ -64,6 +64,18 @@ td {
   background-color: #00FF96;
 }
 
+.update-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.last-updated {
+  font-size: 0.7rem;
+  line-height: 1rem;
+  margin-top: 5px;
+  margin-left: 3px;
+}
+
 .deathknight {
   color: #C41F3B;
 }
