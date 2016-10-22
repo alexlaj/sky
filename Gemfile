@@ -4,6 +4,8 @@ gem 'rails', '~>5'
 gem 'pg'
 gem 'delayed_job_active_record'
 gem 'puma'
+gem 'react-rails'
+gem 'jquery-rails'
 
 group :production do
   gem 'rails_12factor'

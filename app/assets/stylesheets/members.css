@@ -41,8 +41,9 @@ td {
   color: #0070ff;
 }
 
-.class-icon {
+.character_class-icon {
   height: 1rem;
+  padding-right: 2px;
 }
 
 .button__member-update {

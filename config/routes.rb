@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'members#index'
+  root 'guild_members#index'
 
-  resources :members do
+  resources :guild_members, only: [:index] do
     get 'resync', on: :collection
   end
 end
