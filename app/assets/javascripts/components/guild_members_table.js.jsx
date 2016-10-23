@@ -3,6 +3,12 @@ var GuildMembersTable = React.createClass({
     members: React.PropTypes.array.isRequired
   },
 
+  getInitialState() {
+    return({
+      resyncClicked: false
+    })
+  },
+
   ilevelRank(i) {
     return(i < 5 ? 'legendary' : i < 15 ? 'epic' : 'rare')
   },
@@ -28,16 +34,33 @@ var GuildMembersTable = React.createClass({
     return rows
   },
 
+  onResync() {
+    this.setState({
+      resyncClicked: true
+    })
+  },
+
+  resyncButtonText() {
+    if (this.state.resyncClicked) {
+      return("👌 Update job started")
+    } else {
+      return("Begin member update job")
+    }
+  },
+
   render() {
     return (
       <div>
-        <h1 className='guild-name'>Obsidian Sky</h1>
+        <div className="update-section">
+          <img className='guild-crest' src='crest.png'/>
+          <h1 className='guild-name'>Obsidian Sky</h1>
+        </div>
         <table>
           <tbody>{this.tableRows()}</tbody>
         </table>
         <div className="update-section">
-          <button src='/members/resync' className='button button__member-update'>Begin member update job</button>
-          <div className="last-updated">Last updated ago.</div>
+          <button src='/members/resync' onClick={this.onResync.bind(this)} className='button button__member-update'>{this.resyncButtonText()}</button>
+          <div className="last-updated">Last updated {this.props.members[0].updated_at}</div>
         </div>
       </div>
     )

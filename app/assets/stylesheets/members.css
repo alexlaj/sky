@@ -29,6 +29,10 @@ td {
   font-weight: 300;
 }
 
+.guild-crest {
+  height: 4rem;
+}
+
 .legendary {
   color: #ff8000;
 }
@@ -51,23 +55,22 @@ td {
   background-color: white;
   font-family: 'Roboto';
   font-weight: 300;
+  height: 25px;
+  width: 150px;
 }
 
 .button__member-update:focus {
   outline: none;
 }
 
-.button__member-update:focus::before {
-  content: "\u2713";
-}
-
 .button__member-update:hover {
-  background-color: #00FF96;
+  border: 1px solid #00FF96;
 }
 
 .update-section {
   display: flex;
   flex-direction: row;
+  padding-top: 5px;
 }
 
 .last-updated {
